@@ -90,6 +90,7 @@ void main(void){
      MAP_ADC14_enableConversion();
      MAP_ADC14_toggleConversionTrigger();
 
+     // TODO: Enable watchdog timer
 
 //A1-B1-A2-B2-A1
 while(1){
@@ -255,84 +256,6 @@ while(1){
             MAP_Interrupt_disableMaster();
         }
     }
-   /* a= MAP_GPIO_getInputPinValue (GPIO_PORT_P1, GPIO_PIN1);
-    b= MAP_GPIO_getInputPinValue (GPIO_PORT_P1, GPIO_PIN4);
-
-    if(a==0)
-    {
-        //MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P6,GPIO_PIN5);
-        //MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P6,GPIO_PIN4);
-
-        if(count==0)
-        {
-            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN7);
-            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P6,GPIO_PIN6);
-            MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P2,GPIO_PIN4);
-            MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P3,GPIO_PIN0);
-
-
-        }
-        if(count==1)
-                {
-            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P2,GPIO_PIN4|GPIO_PIN7);
-            MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P3,GPIO_PIN0);
-            MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P6,GPIO_PIN6);
-
-
-                }
-        if(count==2)
-                {
-            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P2,GPIO_PIN4);
-            MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P2,GPIO_PIN7);
-            MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P6,GPIO_PIN6);
-            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P3,GPIO_PIN0);
-
-                }
-        if(count==3)
-                {
-
-            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P3,GPIO_PIN0);
-            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P6,GPIO_PIN6);
-                        MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P2,GPIO_PIN7);
-                        MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P2,GPIO_PIN4);
-                }
-    }
-    if(b==0)
-    {
-        //MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P6,GPIO_PIN5);
-        //MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P6,GPIO_PIN4);
-        if(count==0)
-        {
-            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P3,GPIO_PIN0);
-            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P6,GPIO_PIN6);
-                        MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P2,GPIO_PIN7);
-                        MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P2,GPIO_PIN4);
-        }
-        if(count==1)
-        {
-            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P2,GPIO_PIN4);
-            MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P2,GPIO_PIN7);
-            MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P6,GPIO_PIN6);
-            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P3,GPIO_PIN0);
-        }
-        if(count==2)
-        {
-            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P2,GPIO_PIN4|GPIO_PIN7);
-            MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P3,GPIO_PIN0);
-            MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P6,GPIO_PIN6);
-                }
-        if(count==3)
-                {
-            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN7);
-            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P6,GPIO_PIN6);
-            MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P2,GPIO_PIN4);
-            MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P3,GPIO_PIN0);
-
-                }
-
-    }*/
-
-
 
 }
 }
@@ -349,3 +272,4 @@ else
 it=it+1;
 }
 
+// TODO: Add Reference command shaping function
