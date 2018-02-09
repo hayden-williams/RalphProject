@@ -402,3 +402,7 @@ Caused by: java.lang.IllegalArgumentException:
 
 !ENTRY org.eclipse.cdt.core 1 0 2018-02-09 15:58:44.816
 !MESSAGE Indexed 'Encoder_Ralph' (3 sources, 10 headers) in 0.99 sec: 1,124 declarations; 2,196 references; 0 unresolved inclusions; 18 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.ti.ccstudio.debug 1 0 2018-02-09 16:05:39.313
+!MESSAGE DS_ERROR: CORTEX_M4_0: GEL: Encountered a problem loading file: C:\Users\danal\OneDrive\COLLEGE\PROJECTS\Encoder Project\CSS_workspace\Encoder_Ralph\Debug\Encoder_Ralph.out Could not open file
+
