@@ -208,8 +208,8 @@ while(1){
 
         }
 
-        if(it < 1090 && it >= 845) { //  stepper motor pulling as dc motor is finishing pushing board in plate
-            if(count==0) // similar stepper motor direction control
+        if(it < 1090 && it >= 845) {
+            if(count==0)
             {
                 MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P3,GPIO_PIN0);
                 MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P6,GPIO_PIN6);
@@ -238,16 +238,15 @@ while(1){
             }
         }
 
-        if(it == 1120) { // at the end of sequence, disable interrupts
+        if(it == 1120) {
             printf("%i", irRead);
             //irRead[0] = 0;
+            stepNumber = 0;
+            it = 0;
             //Disable interrupts
             MAP_Timer_A_stopTimer(TIMER_A0_BASE);
             MAP_Timer_A_disableInterrupt(INT_TA0_0);
             MAP_Interrupt_disableMaster();
-
-            stepNumber = 0;
-            it = 0;
         }
     }
 

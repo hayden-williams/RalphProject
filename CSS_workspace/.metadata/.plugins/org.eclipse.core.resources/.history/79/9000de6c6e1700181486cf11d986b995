@@ -238,7 +238,7 @@ while(1){
             }
         }
 
-        if(it == 1120) { // at the end of sequence, disable interrupts
+        if(it == 1120) {
             printf("%i", irRead);
             //irRead[0] = 0;
             //Disable interrupts

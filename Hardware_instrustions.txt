@@ -12,6 +12,15 @@ ADC Pins we can use:
 P2.5 (Pin 21 on 
 P7 - SM clk
 
+Operation steps:
+- Turnon orinter, it starts at the bottom , IR sensor reads 0. Stepper motor is pushing the board out.
+- ir sensor turn off, plate goes to a set hight, this happens on a seperate program from Ralphs computer.
+- as the printer raises, teh stepper motor goes off. 
+- DC motor pushes the rack and pinion, into printer plate.
+
+What we need to do/task:
+
+1) 
 
 NOTES: 
 

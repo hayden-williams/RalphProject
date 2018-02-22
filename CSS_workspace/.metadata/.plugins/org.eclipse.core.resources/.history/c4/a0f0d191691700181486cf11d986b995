@@ -10,7 +10,7 @@
 
 volatile int j = -1;  //counter for adc array
 volatile int a;
-//volatile int AVGER=1;  // ralph was experimenting with this
+volatile int AVGER=1;
 volatile int backup=1118;
 volatile bool b;
 volatile float i;
@@ -154,13 +154,13 @@ while(1){
             }
 
         }
-    else if(stepNumber == 1){ // move to step two if plate has started to rise, ir sensor beam not broken
+    else if(stepNumber == 1){
         stepNumber = 2;
         it = 0;
     }
 
     if(stepNumber == 2) {
-        //Turns off stepper, removes resistance, let's board slide in
+        //Turns off stepper
         if(it == 0) {
             MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P3,GPIO_PIN0);
             MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P6,GPIO_PIN6);
@@ -168,7 +168,7 @@ while(1){
              MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P2,GPIO_PIN4);
         }
 
-        //Push board from rack to 3D printer, turn on DC motor
+        //Push board from rack to 3D printer
         if(it == 600) {
             MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P6,GPIO_PIN5);
             MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P6,GPIO_PIN4);
@@ -185,31 +185,30 @@ while(1){
             MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P6,GPIO_PIN4);
         }
         //Stop DC motor
+
         if(it == backup) {
 
             MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P6,GPIO_PIN5);
             MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P6,GPIO_PIN4);
             printf("%i\n",backup);
-
-            // ralph experimenting with this, was trying to get a half iteration( b/w 1117 and 1118)
-//            if (AVGER==1)
-//            {backup=1117;
-//            AVGER=2;}
-//            else if (AVGER==2)
-//            {backup=1117;
-//            AVGER=3;}
-//            else if (AVGER==3)
-//            {backup=1117;
-//            AVGER=4;}
-//            else if (AVGER==4)
-//            {backup=1117;
-//            AVGER=1;}
+            if (AVGER==1)
+            {backup=1117;
+            AVGER=2;}
+            else if (AVGER==2)
+            {backup=1117;
+            AVGER=3;}
+            else if (AVGER==3)
+            {backup=1117;
+            AVGER=4;}
+            else if (AVGER==4)
+            {backup=1117;
+            AVGER=1;}
 
 
         }
 
-        if(it < 1090 && it >= 845) { //  stepper motor pulling as dc motor is finishing pushing board in plate
-            if(count==0) // similar stepper motor direction control
+        if(it < 1090 && it >= 845) {
+            if(count==0)
             {
                 MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P3,GPIO_PIN0);
                 MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P6,GPIO_PIN6);
@@ -238,16 +237,15 @@ while(1){
             }
         }
 
-        if(it == 1120) { // at the end of sequence, disable interrupts
+        if(it == 1120) {
             printf("%i", irRead);
             //irRead[0] = 0;
+            stepNumber = 0;
+            it = 0;
             //Disable interrupts
             MAP_Timer_A_stopTimer(TIMER_A0_BASE);
             MAP_Timer_A_disableInterrupt(INT_TA0_0);
             MAP_Interrupt_disableMaster();
-
-            stepNumber = 0;
-            it = 0;
         }
     }
 
